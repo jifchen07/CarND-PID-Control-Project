@@ -36,8 +36,8 @@ double PID::TotalError() {
   /**
    * TODO: Calculate and return the total error
    */
-  std::cout << "P: " << -Kp * p_error << std::endl;
-  std::cout << "D: " << -Kd * d_error << std::endl;
-  std::cout << "P + D = " << -Kp * p_error - Kd * d_error << std::endl;
+  // std::cout << "P: " << -Kp * p_error << std::endl;
+  // std::cout << "D: " << -Kd * d_error << std::endl;
+  // std::cout << "P + D = " << -Kp * p_error - Kd * d_error << std::endl;
   return Kp * p_error + Ki * i_error + Kd * d_error;
 }
