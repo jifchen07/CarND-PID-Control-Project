@@ -37,8 +37,8 @@ int main(int argC, char* argV[]) {
   uWS::Hub h;
 
   // some constants for twiddling
-  const double threshold = 0.001;
-  const int max_steps = 500;
+  const double threshold = 0.01;
+  const int max_steps = 1000;
 
   // pid and twiddling variables
   PID pid;
@@ -47,8 +47,8 @@ int main(int argC, char* argV[]) {
   int step = 0;
   double sum_cte = 0.0;
   double best_cte;
-  double p[3] = {0.07, 0.0001, 1.9};
-  double dp[3] = {0.005, 0.000001, 0.1};
+  double p[3] = {0.08, 0.00001, 1.5};
+  double dp[3] = {0.01, 0.000001, 0.1};
   int p_iter = 0; // dp iterator
   bool p_was_increased = false;
 
@@ -174,8 +174,10 @@ int main(int argC, char* argV[]) {
                   }
                 }
               }
+			  
 
               std::cout << "avg cte: " << avg_cte << std::endl;
+              std::cout << "next Kp Ki Kd = " << p[0] << ", " << p[1] << ", " << p[2] << std::endl;
               // std::cout << "iterator: " << p_iter << std::endl;
               // std::cout << "p[i]: " << p[p_iter] << std::endl;
               // std::cout << "dp[i]: " << dp[p_iter] << std::endl;
@@ -185,6 +187,7 @@ int main(int argC, char* argV[]) {
                 std::cout << "Best Kp Ki Kd: " << p[0] << p[1] << p[2] << std::endl;
               } else {
                 // restart simulation
+                std::cout << "sum dp = " << dp[0] + dp[1] + dp[2] << std::endl;
                 std::string reset_msg = "42[\"reset\",{}]";
                 ws.send(reset_msg.data(), reset_msg.length(), uWS::OpCode::TEXT);
               }
