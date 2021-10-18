@@ -20,7 +20,7 @@ The goal of this project is to implement a PID controller in C++ to drive the ve
 
 #### Twiddle algorithm automatic tuning:
 
-Once the approximate PID parameters are determined after manual tuning. Twiddle algorithm is applied to fine tune the parameters to further enhance the controller performance. I set the controller performance evaluation criteria to be the average cross-track error across the first 1000 steps(large enough to cover both several straight lines and sharp turns). After twiddling, the vehicle have much less average cross-track error but at the same time it makes a lot of abrupt small steering changes and drives much less smoothly. For this reason, I kept using the initial values gained after manual tuning. The final parameters are: P = 0.08, I = 0.0001, D = 1.5
+Once the approximate PID parameters are determined after manual tuning. Twiddle algorithm is applied to fine tune the parameters to further enhance the controller performance. I set the controller performance evaluation criteria to be the average cross-track error across the first 1000 steps(large enough to cover both several straight lines and sharp turns). After twiddling, the vehicle have much less average cross-track error but at the same time it makes a lot of abrupt small steering changes and drives much less smoothly. For this reason, I kept using the initial values gained after manual tuning. The final parameters are: P = 0.18, I = 0.0001, D = 2
 
 ### Dependencies
 
