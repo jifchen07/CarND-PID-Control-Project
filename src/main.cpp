@@ -47,7 +47,7 @@ int main(int argC, char* argV[]) {
   int step = 0;
   double sum_cte = 0.0;
   double best_cte;
-  double p[3] = {0.08, 0.00001, 1.5};
+  double p[3] = {0.18, 0.00001, 2};
   double dp[3] = {0.01, 0.000001, 0.1};
   int p_iter = 0; // dp iterator
   bool p_was_increased = false;
